@@ -17,5 +17,14 @@
     "method-override": "^2.3.5",
     "mongoose": "^4.4.8",
     "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "async": "^2.0.0-rc.1",
+    "coveralls": "^2.11.8",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5",
+    "mocha-lcov-reporter": "^1.2.0",
+    "should": "^8.2.2",
+    "supertest": "^1.2.0"
   }
 }
