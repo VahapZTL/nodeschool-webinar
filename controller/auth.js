@@ -17,7 +17,7 @@ exports.login = function(req, res) {
         } else {
             if (user) {
                 var userWillBeSigned = delete user.password;
-                var token = jwt.sign(userWillBeSigned, process.env.JWT_SECRET);
+                var token = jwt.sign(userWillBeSigned, process.env.JWT_SECRET || 'sshhsshh');
                 user.token = token;
                 user.save(function(err) {
                     if (err) {
