@@ -25,7 +25,7 @@ module.exports = function(app) {
 
     app.use(
         expressJwt({
-            secret: process.env.JWT_SECRET || 'sshhsshh'
+            secret: process.env.JWT_SECRET
         }).unless({
             path: ['/api/login', '/api/register']
         })
