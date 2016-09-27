@@ -2,7 +2,7 @@ var mongoose = require("mongoose"),
     fs = require("fs"),
     models_path = process.cwd() + '/model';
 
-mongoose.connect(process.env.MONGO_URI || "mongodb://localhost:27017/nodeschool-webinar");
+mongoose.connect(process.env.MONGO_URI || "mongodb://vahapztl:scx-4521f@ds019936.mlab.com:19936/android-node1");
 
 var db = mongoose.connection;
 
