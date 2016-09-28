@@ -7,7 +7,7 @@ exports.save = function(req, res) {
         if (err) {
             res.json({
                 success: false,
-                data: err
+                userData: err
             })
         } else {
             res.json({
@@ -23,13 +23,13 @@ exports.update = function(req, res) {
         if (err) {
             res.status(500).json({
                 success: false,
-                data: err
+                userData: err
             })
         } else {
             if (!user) {
                 res.status(404).json({
                     success: false,
-                    data: 'User not found'
+                    userData: 'User not found'
                 })
             } else {
                 user.name = req.body.name;
@@ -40,7 +40,7 @@ exports.update = function(req, res) {
                     if (err) {
                         res.status(500).json({
                             success: false,
-                            data: err
+                            userData: err
                         })
                     } else {
                         res.json({
@@ -59,7 +59,7 @@ exports.delete = function(req, res) {
         if (err) {
             res.status(500).json({
                 success: false,
-                data: err
+                userData: err
             })
         } else {
             res.json({
@@ -75,7 +75,7 @@ exports.list = function(req, res) {
         if (err) {
             res.status(500).json({
                 success: false,
-                data: err
+                userData: err
             })
         } else {
             res.json({
@@ -91,7 +91,7 @@ exports.get = function(req, res) {
         if (err) {
             res.json({
                 success: false,
-                data: err
+                userData: err
             })
         } else {
             if (user) {
@@ -102,7 +102,7 @@ exports.get = function(req, res) {
             } else {
                 res.status(404).json({
                     success: false,
-                    data: 'User not found'
+                    userData: 'User not found'
                 })
             }
         }

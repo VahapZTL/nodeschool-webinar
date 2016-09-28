@@ -12,18 +12,18 @@ exports.login = function(req, res) {
             res.status(500)
                 .json({
                     success: false,
-                    data: 'Error occurred while login'
+                    authData: 'Error occurred while login'
                 })
         } else {
             if (user) {
                 var userWillBeSigned = delete user.password;
-                var token = jwt.sign(userWillBeSigned, process.env.JWT_SECRET || 'sshhsshh');
+                var token = jwt.sign(userWillBeSigned, process.env.JWT_SECRET || user.password);
                 user.token = token;
                 user.save(function(err) {
                     if (err) {
                         res.json({
                             success: false,
-                            data: 'Error occurred while saving user token'
+                            authData: 'Error occurred while saving user token'
                         });
                     } else {
                         res.json({
@@ -35,7 +35,7 @@ exports.login = function(req, res) {
             } else {
                 res.json({
                     success: false,
-                    data: 'Invalid credentials'
+                    authData: 'Invalid credentials'
                 });
             }
         }
@@ -50,7 +50,7 @@ exports.register = function(req, res) {
             console.error(err);
             res.status(500).json({
                 success: false,
-                data: 'Error occurred while registering user'
+                authData: 'Error occurred while registering user'
             });
         } else {
             res.json({
