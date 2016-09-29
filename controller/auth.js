@@ -12,7 +12,7 @@ exports.login = function(req, res) {
             res.status(500)
                 .json({
                     success: false,
-                    authData: 'Error occurred while login'
+                    data: 'Error occurred while login'
                 })
         } else {
             if (user) {
@@ -23,7 +23,7 @@ exports.login = function(req, res) {
                     if (err) {
                         res.json({
                             success: false,
-                            authData: 'Error occurred while saving user token'
+                            data: 'Error occurred while saving user token'
                         });
                     } else {
                         res.json({
@@ -35,7 +35,7 @@ exports.login = function(req, res) {
             } else {
                 res.json({
                     success: false,
-                    authData: 'Invalid credentials'
+                    data: 'Invalid credentials'
                 });
             }
         }

@@ -7,7 +7,7 @@ exports.save = function(req, res) {
         if (err) {
             res.json({
                 success: false,
-                userData: err
+                data: err
             })
         } else {
             res.json({
@@ -23,13 +23,13 @@ exports.update = function(req, res) {
         if (err) {
             res.status(500).json({
                 success: false,
-                userData: err
+                data: err
             })
         } else {
             if (!user) {
                 res.status(404).json({
                     success: false,
-                    userData: 'User not found'
+                    data: 'User not found'
                 })
             } else {
                 user.name = req.body.name;
@@ -40,7 +40,7 @@ exports.update = function(req, res) {
                     if (err) {
                         res.status(500).json({
                             success: false,
-                            userData: err
+                            data: err
                         })
                     } else {
                         res.json({
@@ -59,7 +59,7 @@ exports.delete = function(req, res) {
         if (err) {
             res.status(500).json({
                 success: false,
-                userData: err
+                data: err
             })
         } else {
             res.json({
