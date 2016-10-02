@@ -45,7 +45,7 @@ exports.update = function(req, res) {
                     } else {
                         res.json({
                             success: true,
-                            data: 'User updated successfully'
+                            data: 'User updated successfully' + user
                         })
                     }
                 });
