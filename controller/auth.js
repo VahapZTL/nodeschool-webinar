@@ -6,7 +6,7 @@ exports.login = function(req, res) {
     User.findOne({
         email: req.body.email,
         password: req.body.password
-    }, function(err, user) {
+    }, function(err, User) {
         if (err) {
             console.error(err);
             res.status(500)
@@ -15,11 +15,11 @@ exports.login = function(req, res) {
                     data: 'Error occurred while login'
                 })
         } else {
-            if (user) {
-                var userWillBeSigned = delete user.password;
-                var token = jwt.sign(userWillBeSigned, process.env.JWT_SECRET || user.password);
-                user.token = token;
-                user.save(function(err) {
+            if (User) {
+                var userWillBeSigned = delete User.password;
+                var token = jwt.sign(userWillBeSigned, process.env.JWT_SECRET || "123");
+                User.token = token;
+                User.save(function(err) {
                     if (err) {
                         res.json({
                             success: false,
