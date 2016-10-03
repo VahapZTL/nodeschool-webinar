@@ -45,7 +45,7 @@ exports.update = function(req, res) {
                     } else {
                         res.json({
                             success: true,
-                            data: 'User updated successfully' + user
+                            data: 'User updated successfully'
                         })
                     }
                 });
@@ -75,7 +75,7 @@ exports.list = function(req, res) {
         if (err) {
             res.status(500).json({
                 success: false,
-                userData: err
+                data: err
             })
         } else {
             res.json({
@@ -91,7 +91,7 @@ exports.get = function(req, res) {
         if (err) {
             res.json({
                 success: false,
-                userData: err
+                data: err
             })
         } else {
             if (user) {
@@ -102,7 +102,7 @@ exports.get = function(req, res) {
             } else {
                 res.status(404).json({
                     success: false,
-                    userData: 'User not found'
+                    data: 'User not found'
                 })
             }
         }

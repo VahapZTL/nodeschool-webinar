@@ -16,8 +16,7 @@ exports.login = function(req, res) {
                 })
         } else {
             if (user) {
-                var userWillBeSigned = delete user.password;
-                var token = jwt.sign(userWillBeSigned, process.env.JWT_SECRET || user.password);
+                var token = jwt.sign(user, process.env.JWT_SECRET || user.password);
                 user.token = token;
                 user.save(function(err) {
                     if (err) {
@@ -50,7 +49,7 @@ exports.register = function(req, res) {
             console.error(err);
             res.status(500).json({
                 success: false,
-                authData: 'Error occurred while registering user'
+                data: 'Error occurred while registering user'
             });
         } else {
             res.json({

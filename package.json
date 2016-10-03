@@ -10,7 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.0",
-    "bower": "^1.7.9",
     "express": "^4.13.4",
     "express-jwt": "^3.3.0",
     "express-unless": "^0.3.0",
